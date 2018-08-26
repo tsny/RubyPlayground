@@ -1,11 +1,17 @@
 require 'Date'
 
 class ToDoList
-    attr_accessor :entries
+    attr_accessor :entries, :timeCreated, :timeLastModified
 
     def initialize
         puts "-----\nCreating new ToDo list... \n-----"
         @entries = Array.new
+        @timeCreated = DateTime.now
+        @timeLastModified = DateTime.now
+    end
+
+    def to_s
+        "List created on #{ @timeCreated } and last modified on #{ @timeLastModified }"
     end
 
     def createEntry
@@ -27,5 +33,10 @@ class ToDoListEntry
     end
 end
 
+# MAIN
+
 listTest = ToDoList.new
+
+listTest.createEntry
+listTest.createEntry
 listTest.createEntry
