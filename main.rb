@@ -14,23 +14,26 @@ class ToDoList
         "List created on #{ @timeCreated } and last modified on #{ @timeLastModified }"
     end
 
-    def createEntry
-        newEntry = Entry.new
+    def createEntry(name)
+        newEntry = Entry.new(name)
         @entries.push(newEntry)
         return newEntry
     end
-end
 
-class Entry
-    attr_accessor :name, :content, :timeEntered, :timeModified, :timeCompleted, :flags
+    class Entry
+        attr_accessor :name, :content, :timeEntered, :timeModified, :timeCompleted, :flags
 
-    def initialize(name = "New Entry")
-        puts "Creating new list entry"
-        @timeEntered = DateTime.now
-        @name = name unless name.nil?
-        puts "Created #{ @name } entry at #{ @timeEntered }"
+        def initialize(name: "New Entry")
+            puts "Creating new list entry"
+            @timeEntered = DateTime.now
+            @name = name unless name.nil?
+            puts "Created #{ @name } entry at #{ @timeEntered }"
+        end
     end
+    private_constant :Entry
+
 end
+
 
 module EntryFlags
     IMPORTANT = 1
@@ -42,5 +45,4 @@ end
 
 listTest = ToDoList.new
 
-listTest.createEntry
-listTest.createEntry("test entry")
+listTest.createEntry(name: "test entry")
