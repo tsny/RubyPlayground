@@ -1,18 +1,18 @@
 require_relative 'calculatorModel.rb'
 require_relative 'inputValidation.rb'
 
-puts "\n-----\nWelcome, you may now calculate your things here!\n-----\n"
+puts "\n-----\nWelcome, you may now calculate your things here!\n-----\n "
 print "Please enter your first input: "
 
-firstInput = InputValidation.operandValidationLoop()
+firstInput = InputValidation.validationLoop("operand")
 
 print "Please enter your second input: "
 
-secondInput = InputValidation.operandValidationLoop()
+secondInput = InputValidation.validationLoop("operand")
 
 print "Please enter your operator: "
 
-operator = InputValidation.operatorValidationLoop()
+operator = InputValidation.validationLoop("operator")
 
 output = Calculator.calculate(firstInput, secondInput, operator)
 

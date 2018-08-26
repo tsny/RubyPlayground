@@ -1,6 +1,6 @@
 class Calculator
-    def self.isInputValid(input)
-        return Integer(input) rescue false
+    def self.isOperandValid(operand)
+        return Integer(operand) rescue false
     end
 
     def self.isOperatorValid(operator)
@@ -9,12 +9,15 @@ class Calculator
 
     def self.calculate(input, input2, operator)
         case operator
+
         when "-"
             return input - input2
         when "+"
             return input + input2
         when "/"
             return input / input2
+        when "*"
+            return input * input2
         else
             return 0
         end

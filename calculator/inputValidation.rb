@@ -1,16 +1,52 @@
 require_relative 'calculatorModel.rb'
 
 class InputValidation
+    def self.validationLoop(type)
+        input = gets.strip
+
+        if (type == "operator")
+            if(Calculator.isOperatorValid(input))
+                return input
+            end
+
+        elsif (type == "operand")
+            if(Calculator.isOperandValid(input))
+                return input.to_i rescue 0
+            end
+        end
+
+            while(true)
+                print "I didn't understand your #{ type } input, please re-enter your input: "
+                input = gets.strip
+
+                if(type == "operator")
+                    if(Calculator.isOperatorValid(input))
+                        return input
+                    end
+
+                elsif(type == "operand")
+                    if(Calculator.isOperandValid(input))
+                        return input.to_i rescue 0
+                    end
+                end
+            end
+
+        return input
+    end
+end
+
+# Older version that separated the validation loop
+=begin
     def self.operandValidationLoop
         input = gets.strip
 
-        currentInputIsValid = Calculator.isInputValid(input)
+        currentInputIsValid = Calculator.isOperandValid(input)
 
         if (!currentInputIsValid)
             while(true)
                 print "I didn't understand your input, please re-enter your input: "
                 input = gets.strip
-                currentInputIsValid = Calculator.isInputValid(input)
+                currentInputIsValid = Calculator.isOperandValid(input)
                 if (currentInputIsValid)
                     break
                 end
@@ -38,4 +74,4 @@ class InputValidation
 
         return input
     end
-end
+=end
