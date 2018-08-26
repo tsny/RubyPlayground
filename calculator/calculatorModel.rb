@@ -8,7 +8,16 @@ class Calculator
     end
 
     def self.calculate(input, input2, operator)
-        return 0
+        case operator
+        when "-"
+            return input - input2
+        when "+"
+            return input + input2
+        when "/"
+            return input / input2
+        else
+            return 0
+        end
     end
 end
 

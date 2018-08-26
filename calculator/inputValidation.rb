@@ -21,5 +21,21 @@ class InputValidation
     end
 
     def self.operatorValidationLoop
+        input = gets.strip
+
+        operatorIsValid = Calculator.isOperatorValid(input)
+
+        if (!operatorIsValid)
+            while(true)
+                print "I didn't understand your input, please re-enter your input: "
+                input = gets.strip
+                operatorIsValid = Calculator.isOperatorValid(input)
+                if (operatorIsValid)
+                    break
+                end
+            end
+        end
+
+        return input
     end
 end

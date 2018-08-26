@@ -9,3 +9,11 @@ firstInput = InputValidation.operandValidationLoop()
 print "Please enter your second input: "
 
 secondInput = InputValidation.operandValidationLoop()
+
+print "Please enter your operator: "
+
+operator = InputValidation.operatorValidationLoop()
+
+output = Calculator.calculate(firstInput, secondInput, operator)
+
+puts output
