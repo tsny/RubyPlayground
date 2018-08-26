@@ -1,3 +1,7 @@
+# This is a great example of not designing your project completely... or just lack of foresight
+# Making a todo list solely on the command line would be very hard for a trial run of Ruby
+# I might remake this using a GUI library sometime...
+
 require 'Date'
 
 class ToDoList
