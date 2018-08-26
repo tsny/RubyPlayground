@@ -23,11 +23,16 @@ class ToDoList
     class Entry
         attr_accessor :name, :content, :timeEntered, :timeModified, :timeCompleted, :flags
 
-        def initialize(name: "New Entry")
-            puts "Creating new list entry"
+        def initialize(name: "New Entry", flags: {})
             @timeEntered = DateTime.now
             @name = name unless name.nil?
-            puts "Created #{ @name } entry at #{ @timeEntered }"
+            puts "Created New Entry '#{ @name }' at #{ @timeEntered }"
+        end
+
+        module EntryFlags
+            IMPORTANT = 1
+            TIMESENSITIVE = 2
+            RANDOM = 3
         end
     end
     private_constant :Entry
@@ -35,14 +40,10 @@ class ToDoList
 end
 
 
-module EntryFlags
-    IMPORTANT = 1
-    TIMESENSITIVE = 2
-    RANDOM = 3
-end
-
-# MAIN
+# TESTING
 
 listTest = ToDoList.new
 
 listTest.createEntry(name: "test entry")
+listTest.createEntry(name: "second entry")
+listTest.createEntry(name: "another entry")
