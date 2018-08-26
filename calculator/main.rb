@@ -17,3 +17,5 @@ operator = InputValidation.validationLoop("operator")
 output = Calculator.calculate(firstInput, secondInput, operator)
 
 puts output
+
+# TODO: Loop so user can enter multiple operands and sequentially perform more operations
